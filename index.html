@@ -26,6 +26,7 @@
       <a href="#quiz" class="nav-link" data-section="quiz">QUIZ</a>
       <a href="#assignments" class="nav-link" data-section="assignments">ASSIGNMENTS</a>
       <a href="#exams" class="nav-link" data-section="exams">EXAMS</a>
+      <a href="#laboratory" class="nav-link" data-section="laboratory">LABORATORY</a>
     </nav>
 
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -166,6 +167,37 @@
       </table>
     </div>
 
+  </div>
+</section>
+
+<!-- ===== LABORATORY ===== -->
+<section id="laboratory" class="section laboratory-page">
+  <div class="section-head reveal">
+    <span class="section-num">06</span>
+    <h2>LABORATORY <span class="text-accent">FILES</span></h2>
+    <p>A focused space for uploading and reviewing laboratory work.</p>
+  </div>
+
+  <div class="laboratory-layout">
+    <div class="laboratory-upload reveal">
+      <h3>Upload Laboratory Files</h3>
+      <p>Select one or more PDF files to preview them directly in your portfolio.</p>
+      <form id="laboratoryForm" class="entry-form">
+        <label class="laboratory-picker" for="laboratoryFiles">
+          <span class="laboratory-picker-icon" aria-hidden="true">+</span>
+          <span class="laboratory-picker-title">CHOOSE PDF FILES</span>
+          <span class="laboratory-picker-note" id="laboratoryFileName">PDF format only · multiple files allowed</span>
+          <input id="laboratoryFiles" type="file" accept="application/pdf,.pdf" multiple required>
+        </label>
+        <button class="button" type="submit">UPLOAD FILES</button>
+      </form>
+    </div>
+
+    <div class="laboratory-viewer reveal">
+      <h2 class="laboratory-files-title">View Uploaded Files</h2>
+      <p class="laboratory-empty" id="laboratoryEmpty">Your uploaded PDF previews will appear here.</p>
+      <div id="laboratoryPreviews"></div>
+    </div>
   </div>
 </section>
 
