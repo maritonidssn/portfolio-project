@@ -604,6 +604,14 @@ ul{ list-style:none; }
 .quiz-remove:hover{ background:var(--white); border-color:var(--white); color:var(--black); }
 .quiz-back .quiz-remove{ border-color:rgba(255,255,255,.45); color:var(--white); }
 .quiz-back .quiz-remove:hover{ background:var(--white); color:var(--red-deep); }
+.record-actions{ align-items:center; display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.record-actions button{ background:transparent; border:1px solid currentColor; color:var(--red); cursor:pointer; font-family:var(--font-display); font-size:.58rem; font-weight:700; letter-spacing:1px; padding:6px 9px; }
+.record-actions button:hover{ background:var(--white); color:var(--black); }
+.record-remove{ background:transparent; border:1px solid var(--red); color:var(--red); cursor:pointer; font-family:var(--font-display); font-size:.58rem; font-weight:700; letter-spacing:1px; padding:6px 9px; }
+.record-edit-form{ display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; width:100%; }
+.record-edit-form input{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.3); color:var(--white); min-width:110px; padding:7px 8px; }
+.record-edit-form button{ padding:6px 9px; }
+.exams-table .record-edit-form{ min-width:260px; }
 .quiz-back .quiz-hint{ color:rgba(255,255,255,.65); }
 .quiz-a{
   font-size:.95rem;
