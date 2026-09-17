@@ -221,6 +221,26 @@ function renderLaboratoryFile(file) {
   laboratoryEmpty.hidden = true;
 }
 
+/* Hardcoded lab files: these must sit in the same folder as index.html
+   so the links below can find them. They show for every visitor, on
+   any browser — unlike the uploaded files, which only persist per browser. */
+const defaultLaboratoryFiles = [
+  { name: 'Laboratory 2 - Activity 2', href: 'Laboratory2-Act2.pdf' },
+  { name: 'Lab 1 Rubric', href: 'lab1-rubric.pdf' }
+];
+
+function renderStaticLaboratoryFile(file) {
+  const preview = document.createElement('article');
+  preview.className = 'laboratory-file reveal in-view';
+  preview.innerHTML = `<div class="laboratory-file-head"><div><span class="laboratory-file-type">PDF FILE</span><h3></h3></div></div><a class="laboratory-file-link laboratory-file-open" target="_blank" rel="noopener">OPEN PDF IN NEW TAB &rarr;</a>`;
+  preview.querySelector('h3').textContent = file.name;
+  preview.querySelector('.laboratory-file-link').href = file.href;
+  laboratoryPreviews.append(preview);
+  laboratoryEmpty.hidden = true;
+}
+
+if (laboratoryPreviews) defaultLaboratoryFiles.forEach(renderStaticLaboratoryFile);
+
 async function loadLaboratoryFiles() {
   try {
     laboratoryDatabase = await openLaboratoryDatabase();
