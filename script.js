@@ -1,11 +1,22 @@
 /* =========================================================
    DATA
 ========================================================= */
-const quizData = JSON.parse(localStorage.getItem('portfolio-quizzes') || '[]');
+const defaultQuizzes = [
+  { tag: '1', score: '18/20' },
+  { tag: '2', score: '20/20' },
+  { tag: '3', score: '20/20' },
+  { tag: 'Long Quiz', score: '40/40' }
+];
+
+const defaultExams = [
+  { period: 'Prelim', date: 'September 17, 2026', score: '63/70' }
+];
+
+const quizData = JSON.parse(localStorage.getItem('portfolio-quizzes') || JSON.stringify(defaultQuizzes));
 
 const assignmentsData = JSON.parse(localStorage.getItem('portfolio-assignments') || '[]');
 
-const examsData = JSON.parse(localStorage.getItem('portfolio-exams') || '[]');
+const examsData = JSON.parse(localStorage.getItem('portfolio-exams') || JSON.stringify(defaultExams));
 
 const quizGrid = document.getElementById('quizGrid');
 const assignmentsGrid = document.getElementById('assignmentsGrid');
@@ -202,10 +213,9 @@ function renderLaboratoryFile(file) {
   laboratoryObjectUrls.push(objectUrl);
   const preview = document.createElement('article');
   preview.className = 'laboratory-file reveal in-view';
-  preview.innerHTML = `<div class="laboratory-file-head"><div><span class="laboratory-file-type">PDF FILE</span><h3></h3></div><span class="laboratory-file-size"></span></div><embed type="application/pdf"><a class="laboratory-file-link" target="_blank" rel="noopener">OPEN IN NEW TAB</a>`;
+  preview.innerHTML = `<div class="laboratory-file-head"><div><span class="laboratory-file-type">PDF FILE</span><h3></h3></div><span class="laboratory-file-size"></span></div><a class="laboratory-file-link laboratory-file-open" target="_blank" rel="noopener">OPEN PDF IN NEW TAB &rarr;</a>`;
   preview.querySelector('h3').textContent = file.name;
   preview.querySelector('.laboratory-file-size').textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB`;
-  preview.querySelector('embed').src = objectUrl;
   preview.querySelector('.laboratory-file-link').href = objectUrl;
   laboratoryPreviews.prepend(preview);
   laboratoryEmpty.hidden = true;
